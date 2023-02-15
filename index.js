@@ -44,13 +44,13 @@ app.post("/weather_overview", function (req, res) {
           .addBack()
           .text()
           .replaceAll("°C", "°C ");
-        const wheather = temp.replaceAll("Now", "");
-        const wheather_Details = wheather.replaceAll(".", ". ");
+        const weather = temp.replaceAll("Now", "");
+        const weather_Details = weather.replaceAll(".", ". ");
         const headline = $(".headline-banner__content").text();
 
         const source = base + $(this).attr("href");
 
-        articles.push({ headline, title, wheather_Details, source });
+        articles.push({ headline, title, weather_Details, source });
       });
       res.json(articles);
     })
