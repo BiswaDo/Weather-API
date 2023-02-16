@@ -47,10 +47,10 @@ app.post("/news", function (req, res) {
         const wheather = temp.replaceAll("Now", "");
         const wheather_Details = wheather.replaceAll(".", ". ");
         const headline = $(".headline-banner__content").text();
-
+        const more_details = $(".bk-focus__info").text();
         const source = base + $(this).attr("href");
 
-        articles.push({ headline, title, wheather_Details, source });
+        articles.push({ headline, title, wheather_Details, source, more_details });
       });
       res.json(articles);
     })
@@ -91,15 +91,12 @@ app.get("/news/:countryId/:placeId", async (req, res) => {
         const wheather = temp.replaceAll("Now", "");
         const wheather_Details = wheather.replaceAll(".", ".  ");
         const headline = $(".headline-banner__content").text();
+        const more_details = $(".bk-focus__info").text();
 
         const source = base + $(this).attr("href");
 
-        articles.push({
-          headline,
-          title,
-          wheather_Details,
-          source,
-        });
+        articles.push({ headline, title, wheather_Details, source, more_details });
+        
       });
       res.json(articles);
     })
