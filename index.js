@@ -50,11 +50,7 @@ app.post("/weather_overview", function (req, res) {
         const more_details = $(".bk-focus__info").text();
         const source = base + $(this).attr("href");
 
-<<<<<<< HEAD
         articles.push({ headline, title, wheather_Details, source, more_details });
-=======
-        articles.push({ headline, title, weather_Details, source });
->>>>>>> 30da8906cddde34861bfad80068c52a5d3404820
       });
       res.json(articles);
     })
