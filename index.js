@@ -15,7 +15,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/news", function (req, res) {
+app.post("/weather_overview", function (req, res) {
   var country = req.body.country;
   console.log(country);
   const place = req.body.place;
@@ -44,20 +44,24 @@ app.post("/news", function (req, res) {
           .addBack()
           .text()
           .replaceAll("°C", "°C ");
-        const wheather = temp.replaceAll("Now", "");
-        const wheather_Details = wheather.replaceAll(".", ". ");
+        const weather = temp.replaceAll("Now", "");
+        const weather_Details = weather.replaceAll(".", ". ");
         const headline = $(".headline-banner__content").text();
         const more_details = $(".bk-focus__info").text();
         const source = base + $(this).attr("href");
 
+<<<<<<< HEAD
         articles.push({ headline, title, wheather_Details, source, more_details });
+=======
+        articles.push({ headline, title, weather_Details, source });
+>>>>>>> 30da8906cddde34861bfad80068c52a5d3404820
       });
       res.json(articles);
     })
     .catch((err) => console.log(err));
 });
 
-app.get("/news/:countryId/:placeId", async (req, res) => {
+app.get("/weather_overview/:countryId/:placeId", async (req, res) => {
   const countryId = req.params.countryId;
   const placeId = req.params.placeId;
   const base = "https://www.timeanddate.com";
