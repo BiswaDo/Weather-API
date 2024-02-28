@@ -3,20 +3,20 @@ const PORT =  process.env.PORT | 3000;
 const express = require("express");
 const cheerio = require("cheerio");
 const axios = require("axios");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 const articles = [];
 
-app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
-app.post("/weather_overview", function (req, res) {
-  var country = req.body.country;
+app.get("/weather_overview", function (req, res) {
+  const country = req.body.country;
   console.log(country);
   const place = req.body.place;
 
