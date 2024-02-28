@@ -8,14 +8,13 @@ const axios = require("axios");
 const app = express();
 
 // app.use(bodyParser.urlencoded({ extended: true }));
-
-const articles = [];
-
 // app.get("/", function (req, res) {
 //   res.sendFile(__dirname + "/index.html");
 // });
 
 app.get("/weather_overview", function (req, res) {
+  const articles = [];
+  
   const country = req.query.country;
   console.log(country);
   const place = req.query.place;
