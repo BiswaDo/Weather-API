@@ -37,7 +37,7 @@ app.post("/weather_overview", function (req, res) {
           fixedTitle = $(this).text().replaceAll(key, correction[key]);
         });
 
-        const title = fixedTitle.replaceAll("\n", "");
+        // const title = fixedTitle.replaceAll("\n", "");
 
         const temp = $("#qlook")
           .find(".h1")
@@ -47,10 +47,11 @@ app.post("/weather_overview", function (req, res) {
         const weather = temp.replaceAll("Now", "");
         const weather_Details = weather.replaceAll(".", ". ");
         const headline = $(".headline-banner__content").text();
-        const more_details = $(".bk-focus__info").text();
+        const logo = $('#cur-weather').attr('src');
+        // const more_details = $(".bk-focus__info").text();
         const source = base + $(this).attr("href");
 
-        articles.push({ headline, title, wheather_Details, source, more_details });
+        articles.push({ headline,logo, weather_Details, source });
       });
       res.json(articles);
     })
