@@ -39,11 +39,7 @@ app.post("/weather_overview", function (req, res) {
 
         // const title = fixedTitle.replaceAll("\n", "");
 
-        const temp = $("#qlook")
-          .find(".h1")
-          .addBack()
-          .text()
-          .replaceAll("°C", "°C ");
+        const temp = $("#qlook").find(".h1").addBack().text().replaceAll("°C", "°C ");
         const weather = temp.replaceAll("Now", "");
         const weather_Details = weather.replaceAll(".", ". ");
         const headline = $(".headline-banner__content").text();
