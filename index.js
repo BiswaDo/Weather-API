@@ -16,9 +16,9 @@ const articles = [];
 // });
 
 app.get("/weather_overview", function (req, res) {
-  const country = req.body.country;
+  const country = req.query.country;
   console.log(country);
-  const place = req.body.place;
+  const place = req.query.place;
 
   axios
     .get("https://www.timeanddate.com/weather/" + country + "/" + place)
